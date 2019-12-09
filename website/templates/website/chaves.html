@@ -1,0 +1,73 @@
+{% extends "website/_layouts/base.html" %}
+
+{% block title %} Gerar Chaves {% endblock %}
+
+{% block conteudo %}
+
+<div class = "container-fluid">
+    <div class = "row" id = "rowchave">
+        <div class = "col">
+            <div class = "card">
+                <div class = "card body">
+                    <h5 class="card-title">Gerar Chaves Assimétricas com RSA</h5>
+                    <p class="card-text">
+                        <b>Para melhor visualização, as <code>Chaves Assimétricas</code> geradas serão mostradas na tela.</b><br>
+                        <b>*A geração com 2048 bits pode demorar um pouco.</b>
+                        <hr>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class = "row" id = "chavesrow">
+        <div class = "col">
+            <div class = "card">
+                <form method="POST" id = "formchave">
+                    {% csrf_token %}
+                    <center><div class="radio">
+                        <label><input type="radio" value = "1024" id = "radio1" name="optradio" checked>1024 bits</label>
+                        <label><input type="radio" value = "2048" id = "radio2" name="optradio">2048 bits</label>
+                    </div></center>
+                    <button type="submit" class="btn btn-dark btn-sm btn-block">Gerar Chave</button>
+                </form>
+                <div class = "card body">
+                    <div class = "divchave">
+                        <h5 class="card-title">Chave Pública (n,e)</h5>
+                        <p class="card-text">
+                            <code>(n)</code>
+                        </p>
+
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="{{linha_n}}">{{n}}</textarea>
+                        <p class="card-text">
+                            <code>(e)</code>
+                        </p>
+
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="{{linha_e}}">{{e}}</textarea>
+                    </div>
+                    
+                    <div class = "divchave" id = "divprivada">
+                        <h5 class="card-title">Chave Privada (p,q,d)</h5>
+                        <p class="card-text">
+                            <code>(p)</code>
+                        </p>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="{{linha_p}}">{{p}}</textarea>
+    
+                        <p class="card-text">
+                            <code>(q)</code>
+                        </p>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="{{linha_q}}">{{q}}</textarea>
+    
+                        <p class="card-text">
+                            <code>(d)</code>
+                        </p>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="{{linha_d}}">{{d}}</textarea>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

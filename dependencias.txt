@@ -1,0 +1,6 @@
+python
+Django
+djangorestframework
+django-widget-tweaks
+pycryptodome
+pyopenssl

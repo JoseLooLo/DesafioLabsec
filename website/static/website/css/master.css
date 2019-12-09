@@ -1,0 +1,133 @@
+.card {
+    border: 0;
+}
+
+.card.body{
+    border: 0;
+}
+
+.btn.btn-dark.btn-sm{
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.card-title{
+    font-family: 'Alatsi', sans-serif;
+    text-align: center;
+    margin-left: 1%;
+}
+
+.card-text{
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+    margin-left: 1%;
+}
+
+.row {
+    margin-top: 1%;
+}
+
+.inputfile{
+    text-align: center;
+}
+
+.btn.btn-dark.btn-sm.btn-block {
+    margin-top: 2%;
+    align-items: center;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.divUpload {
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.outputresumo {
+    margin-bottom: 1%;
+    margin-left: 27%;
+    margin-right: 27%;
+}
+
+#chavesrow {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#divprivada {
+    margin-top: 2%;
+}
+
+.divchave {
+    padding: 1%;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 30px;
+}
+
+#formchave {
+    margin-top: -2%;
+    margin-bottom: 1%;
+    margin-left: 10%;
+    margin-right: 10%;
+    align-items: center;
+}
+
+.radio {
+    margin-left: 8%;
+}
+
+#radio1 {
+    margin-left: -100%;
+}
+
+.formacraiz {
+    margin-top: 2%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+#buttoncert {
+    margin-bottom: 2%;
+}
+
+#indexx {
+    margin-top: 2%;
+}
+
+.footer {
+   position: fixed;
+   bottom: 0;
+   width: 100%;
+   padding: 1rem;
+   text-align: center;
+}
+
+.codigo {
+    align-items: left;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    background-color: black;
+    padding: 1%;
+}
+
+.codigo .card-text {
+    text-align: left;
+    color: white;
+}
+
+.codigo .card-text p{
+    color: white;
+}
+
+#get1 {
+    margin-top: 1%
+}
+
+.erros {
+    align-self: center;
+}

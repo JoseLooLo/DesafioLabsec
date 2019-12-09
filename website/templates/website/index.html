@@ -1,0 +1,125 @@
+{% extends "website/_layouts/base.html" %}
+
+{% block title %} LabSec {% endblock %}
+
+{% block conteudo %}
+
+<div class = "container-fluid">
+    <div class = "row">
+        <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class = "card">
+                <div class = "card body">
+                    <h5 class="card-title">Resumo Criptográfico</h5>
+                    <p class="card-text">
+                        Obter o <code>Resumo Criptográfico</code> de um documento.
+                    </p>
+                    <a href="{% url 'website:resumo' %}"
+                        class="btn btn-dark btn-sm">
+                        Resumo Criptográfico
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class = "card">
+                    <div class = "card body">
+                        <h5 class="card-title">Chave Assimétrica</h5>
+                        <p class="card-text" >
+                        Gerar <code>Chaves Assimétricas</code> usando RSA.
+                        </p>
+                        <a href="{% url 'website:chaves' %}"
+                        class="btn btn-dark btn-sm">
+                        Gerar Chave Assimétrica
+                        </a>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div class = "row">
+            <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class = "card">
+                    <div class = "card body">
+                        <h5 class="card-title">Certificado Digital</h5>
+                        <p class="card-text">
+                        Gerar um <code>Certificado Digital</code>.
+                        </p>
+                        <a href="{% url 'website:gerarcertificado' %}"
+                        class="btn btn-dark btn-sm">
+                        Gerar Certificado
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class = "card">
+                        <div class = "card body">
+                            <h5 class="card-title">Lista de Certificados Digitais</h5>
+                            <p class="card-text" >
+                            Obter a <code>Lista de Certificados Digitais</code> gerados.
+                            </p>
+                            <a href="{% url 'website:certificados' %}"
+                            class="btn btn-dark btn-sm">
+                            Lista de Certificados
+                            </a>
+                        </div>
+                    </div>
+            </div>
+    </div>
+    <hr>
+    <div class = "col">
+        <div class = "card">
+            <div class = "card body">
+                <h5 class="card-title">API</h5>
+                <p class="card-text" >
+                O site foi criado para facilitar a visualização das informações e tornar o sistema um pouco mais interativo.<br>
+                Os links abaixo levam a páginas da API de cada ferramenta desenvolvida, sendo possivel enviar requisições via <code>POST</code> ou obter informações pelo <code>GET</code>.<br>
+                As informações obtidas podem ser obtidas de um arquivo <code>JSON</code>. Divirta-se.
+            </div>
+        </div>
+    </div>
+
+    <div class = "row" id = "indexx">
+        <div class = "col">
+            <div class = "card">
+                <div class = "card body">
+                    <h5 class="card-title">Resumo Criptográfico</h5>
+                    <a href="{% url 'website:resumo-list' %}"
+                    class="btn btn-primary btn-sm">
+                    API Resumo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class = "col">
+            <div class = "card">
+                <div class = "card body">
+                    <h5 class="card-title">Chave Assimétrica</h5>
+                    <a href="{% url 'website:chaves-list' %}"
+                    class="btn btn-success btn-sm">
+                    API Chave
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class = "col">
+            <div class = "card">
+                <div class = "card body">
+                    <h5 class="card-title">Certificado Digital</h5>
+                    <a href="{% url 'website:certificado-list' %}"
+                    class="btn btn-danger btn-sm">
+                    API Certificados
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

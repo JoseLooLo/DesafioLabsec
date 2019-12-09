@@ -1,0 +1,36 @@
+{% extends "website/_layouts/base.html" %}
+
+{% block title %} Resumo Criptográfico {% endblock %}
+
+{% block conteudo %}
+
+<div class = "container-fluid">
+    <div class = "row">
+        <div class = "col">
+            <div class = "card">
+                <div class = "card body">
+                    <h5 class="card-title">Resumo Criptográfico</h5>
+                    {% if desativado %}
+                    <div class = "outputresumo">
+                        <input type="text" class="form-control" placeholder="{{texto}}" disabled="true">
+                    </div>
+                    {% endif %}
+                    {% if ativo %}
+                    <div class = "outputresumo">
+                        <input type="text" class="form-control" value="{{texto}}">
+                    </div>
+                    {% endif %}
+                    <center><form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="file" name = "arquivo" class = "inputfile">
+                        <div class = "divUpload">
+                            <button type="submit" class="btn btn-dark btn-sm btn-block" id = "btnUpload">Enviar</button>
+                        </div>
+                    </form></center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

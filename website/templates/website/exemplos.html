@@ -1,0 +1,108 @@
+{% extends "website/_layouts/base.html" %}
+
+{% block title %} Exemplos API {% endblock %}
+
+{% block conteudo %}
+<div class = "container-fluid">
+    <div class = "row" id = "rowchave">
+        <div class = "col">
+            <div class = "card">
+                <div class = "card body">
+                    <h5 class="card-title">Exemplos</h5>
+                    <p class="card-text">
+                        <b>Serão mostradas alguns exemplos de <code>Requisições</code> para exemplificar o uso da API.</b><br>
+                        <b>Os exemplos são na linguagem Python e utilizando a library requests.</b><br>
+                        Para instalar a library requests use <code>pip install requests</code><br>
+                        *Para problemas com CSRF, consulte o ultimo bloco.
+                        <hr>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class = "row" id = "rowchave">
+        <div class = "col">
+            <div class = "card">
+                <div class = "card body">
+                    <h5 class="card-title">Resumo Criptográfico</h5>
+                    <div class = "codigo">
+                        <p class="card-text">
+                            import <code>requests</code><br>
+                            send = {<br>
+                            'arquivo' : (nomeArquivo, open(nomeArquivo, 'rb'), 'multipart/form-data')<br>
+                            }<br>
+                            requests.post('http://localhost:8000/getresumo/', files = send)<br>
+                        </p>
+                    </div>
+                    <div class = "codigo" id = "get1">
+                        <p class="card-text">
+                            import <code>requests</code><br>
+                            resumos = requests.get('http://localhost:8000/getresumo/')<br>
+                            resumos.json()
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class = "row" id = "rowchave">
+        <div class = "col">
+            <div class = "card">
+                <div class = "card body">
+                    <h5 class="card-title">Chaves Assimétricas</h5>
+                    <div class = "codigo">
+                        <p class="card-text">
+                            import <code>requests</code><br>
+                            send = {<br>
+                            'tipo' : 2048)<br>
+                            }<br>
+                            requests.post('http://localhost:8000/getchaves/', data = send)<br>
+                        </p>
+                    </div>
+                    <div class = "codigo" id = "get1">
+                        <p class="card-text">
+                            import <code>requests</code><br>
+                            chaves = requests.get('http://localhost:8000/getchaves/')<br>
+                            chaves.json()
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class = "row" id = "rowchave">
+        <div class = "col">
+            <div class = "card">
+                <div class = "card body">
+                    <h5 class="card-title">Certificados</h5>
+                    <div class = "codigo">
+                        <p class="card-text">
+                            import <code>requests</code><br>
+                            send = {<br>
+                            'serialNumber' : 1234, <br>
+                            'certificateName' : 'name', <br>
+                            'organization' : 'organization',<br>
+                            'organizationalUnit' : 'organizationalUnit',<br>
+                            'country' : 'BR',<br>
+                            'locality' : 'locality',<br>
+                            'state' : 'state'<br>
+                            }<br>
+                            requests.post('http://localhost:8000/getcertificados/', data = send)<br>
+                        </p>
+                    </div>
+                    <div class = "codigo" id = "get1">
+                        <p class="card-text">
+                            import <code>requests</code><br>
+                            certificados = requests.get('http://localhost:8000/getcertificados/')<br>
+                            certificados.json()
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "website/_layouts/base.html" %}
+
+{% block title %} Exemplos API {% endblock %}
+
+{% block conteudo %}
+<div class = "container-fluid">
+    <div class = "row" id = "rowchave">
+        <div class = "col">
+            <div class = "card">
+                <div class = "card body">
+                    <h5 class="card-title">Status Code</h5>
+                    <p class="card-text">
+                        <b><code>201</code> - Funcinou.</b><br>
+                        <b><code>400</code> - Bad Request. Algum campo foi preenchido incorretamente ou está faltando.</b>
+                        <hr>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class = "row" id = "rowchave">
+        <div class = "col">
+            <div class = "card">
+                <div class = "card body">
+                    <h5 class="card-title">CSRF</h5>
+                    <h6 class = "erros">Caso esteja com problemas para realizar os requests, envie um dado com o token do csrf junto com o request.</h6>
+                    <h6 class = "erros"><code>Exemplo</code></h6>
+                    <div class = "codigo">
+                        <p class="card-text">
+                            import <code>requests</code><br>
+                            ses = requests.Session()<br>
+                            r = ses.get('http://localhost:8000/resumo/')<br>
+                            csrf_token = r.cookies['csrftoken']<br>
+                            info = {'csrfmiddlewaretoken': csrf_token}<br>
+                            send = {<br>
+                            'arquivo' : (nomeArquivo, open(nomeArquivo, 'rb'), 'multipart/form-data')<br>
+                            }<br>
+                            requests.post('http://localhost:8000/getresumo/', files = send, data=info)<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

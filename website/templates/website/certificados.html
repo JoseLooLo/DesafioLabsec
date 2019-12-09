@@ -1,0 +1,61 @@
+{% extends "website/_layouts/base.html" %}
+
+{% block title %} Lista de Certificados {% endblock %}
+
+{% block conteudo %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Lista de Certificados</h5>
+
+          {% if certificados|length > 0 %}
+            <p class="card-text">
+              Aqui está a lista de <code>Certificados</code> emitidos.
+            </p>
+
+            <table class="table">
+              <thead class="thead-dark">
+              <tr>
+                <th>Serial</th>
+                <th>Certificate Name</th>
+                <th>Organization</th>
+                <th>Organization Unit</th>
+                <th>Country</th>
+                <th>Locality</th>
+                <th>State</th>
+              </tr>
+              </thead>
+
+              <tbody>
+              {% for certificado in certificados %}
+                <tr>
+                  <td>{{ certificado.serialNumber }}</td>
+                  <td>{{ certificado.certificateName }}</td>
+                  <td>{{ certificado.organization }}</td>
+                  <td>{{ certificado.organizationalUnit }}</td>
+                  <td>{{ certificado.country }}</td>
+                  <td>{{ certificado.locality }}</td>
+                  <td>{{ certificado.state }}</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+        {% else %}
+          <div class="text-center mt-5 mb-5 jumbotron">
+            <h5>Nenhum <code>Certificado</code> foi emitido ainda.</h5>
+          </div>
+        {% endif %}
+          <hr />
+          <div class="text-right">
+            <a href="{% url 'website:gerarcertificado' %}" class="btn btn-dark">
+              Emitir Novo Certificado
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

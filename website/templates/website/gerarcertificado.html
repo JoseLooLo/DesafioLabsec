@@ -1,0 +1,84 @@
+{% extends "website/_layouts/base.html" %}
+
+{% load widget_tweaks %}
+
+{% block title %} Gerar Certificado {% endblock %}
+
+{% block conteudo %}
+
+<div class = "container-fluid">
+    <div class = "row" id = "rowchave">
+        <div class = "col">
+            <div class = "card">
+                <div class = "card body">
+                    <h5 class="card-title">Emitir Certificado X-509 para a AC-Raiz</h5>
+                    <p class="card-text">
+                        <b>Caso já exista um <code>Certificado</code> da AC-Raiz, um novo certificado não será emitido.</b><br>
+                    </p>
+                </div>
+                <form method="POST" action="{% url 'website:gerarcertificadoraiz' %}" class = "formacraiz">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-dark btn-sm btn-block" >Emitir Certificado para AC-Raiz</button>
+                </form>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <div class = "row" id = "rowchave">
+        <div class = "col">
+            <div class = "card">
+                <div class = "card body">
+                    <h5 class="card-title">Emitir Certificado X-509 assinado pela AC-Raiz</h5>
+                    <p class="card-text">
+                        <b>Emitir um novo <code>Certificado</code> assinado pela AC-Raiz.</b><br>
+                    </p>
+                </div>
+                <form method="POST" class = "formacraiz">
+                    {% csrf_token %}
+                    <div class="form-row" id = "formcert">
+                        <div class="form-group col-md-6">
+                            <label for="certname">Certificate Name</label>
+                            {% render_field form.certificateName class+="form-control" %}
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="serialnum">Serial Number</label>
+                            {% render_field form.serialNumber class+="form-control" %}
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="city">Country</label>
+                            {% render_field form.country class+="form-control" %}
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="state">State</label>
+                            {% render_field form.state class+="form-control" %}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="local">Locality</label>
+                        {% render_field form.locality class+="form-control" %}
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="org">Organization</label>
+                            {% render_field form.organization class+="form-control" %}
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="orgunit">Organizational Unit</label>
+                            {% render_field form.organizationalUnit class+="form-control" %}
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark btn-sm btn-block" id = "buttoncert" >Emitir Certificado</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
