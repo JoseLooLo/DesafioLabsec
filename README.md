@@ -3,13 +3,13 @@
 É necessário possuir o python e o pip instalados previamente no sistema.
 > Em alguns casos, como no windows, utilize o comando python no lugar de python3.
 
-> Em alguns casos, como no windows, utilize o comando pip no lugar de pip3.
+> Em alguns casos, se não funcionar, utilize o comando pip3 no lugar de pip.
 
 <h2>Instalar</h2>
 
 Para instalar as depêndencias necessárias, execute:
 ```
-pip3 install -r requisitos.txt
+pip install -r requisitos.txt
 ```
 Ou instale manualmente os pacotes cujos nomes estão no arquivo requisitos.txt
 
