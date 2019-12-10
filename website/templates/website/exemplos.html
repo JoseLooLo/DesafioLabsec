@@ -32,7 +32,8 @@
                             send = {<br>
                             'arquivo' : (nomeArquivo, open(nomeArquivo, 'rb'), 'multipart/form-data')<br>
                             }<br>
-                            requests.post('http://localhost:8000/getresumo/', files = send)<br>
+                            resumo = requests.post('http://localhost:8000/getresumo/', files = send)<br>
+                            resumo.json()
                         </p>
                     </div>
                     <div class = "codigo" id = "get1">
@@ -56,9 +57,10 @@
                         <p class="card-text">
                             import <code>requests</code><br>
                             send = {<br>
-                            'tipo' : 2048)<br>
+                            'tipo' : 2048<br>
                             }<br>
-                            requests.post('http://localhost:8000/getchaves/', data = send)<br>
+                            chaves = requests.post('http://localhost:8000/getchaves/', data = send)<br>
+                            chaves.json()
                         </p>
                     </div>
                     <div class = "codigo" id = "get1">
@@ -90,13 +92,31 @@
                             'locality' : 'locality',<br>
                             'state' : 'state'<br>
                             }<br>
-                            requests.post('http://localhost:8000/getcertificados/', data = send)<br>
+                            certificados = requests.post('http://localhost:8000/getcertificados/', data = send)<br>
+                            certificados.json()
                         </p>
                     </div>
                     <div class = "codigo" id = "get1">
                         <p class="card-text">
                             import <code>requests</code><br>
                             certificados = requests.get('http://localhost:8000/getcertificados/')<br>
+                            certificados.json()
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class = "row" id = "rowchave">
+        <div class = "col">
+            <div class = "card">
+                <div class = "card body">
+                    <h5 class="card-title">Certificado Raiz</h5>
+                    <div class = "codigo" id = "get1">
+                        <p class="card-text">
+                            import <code>requests</code><br>
+                            certificados = requests.post('http://localhost:8000/getcertificadoraiz/')<br>
                             certificados.json()
                         </p>
                     </div>
