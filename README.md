@@ -17,12 +17,12 @@ Ou instale manualmente os pacotes cujos nomes estão no arquivo requisitos.txt
 
 Após instalar as dependências e antes de executar o projeto, executar os seguintes comandos estando na pasta raiz do projeto.
 
-Para configurações inicias
+Para configurações inicias e criação do banco de dados
 ```
 python3 manage.py makemigrations
 ```
 
-Logo após executar para criar o banco de dados
+Logo após executar para criar as tabelas
 ```
 python3 manage.py migrate
 ```
