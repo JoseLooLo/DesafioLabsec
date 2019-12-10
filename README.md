@@ -1,8 +1,15 @@
+<h2>Observações</h2>
+
+É necessário possuir o python e o pip instalados previamente no sistema.
+> Em alguns casos, como no windows, utilize o comando python no lugar de python3.
+
+> Em alguns casos, como no windows, utilize o comando pip no lugar de pip3.
+
 <h2>Instalar</h2>
 
 Para instalar as depêndencias necessárias, execute:
 ```
-pip install -r requisitos.txt
+pip3 install -r requisitos.txt
 ```
 Ou instale manualmente os pacotes cujos nomes estão no arquivo requisitos.txt
 
@@ -12,19 +19,19 @@ Após instalar as dependências e antes de executar o projeto, executar os segui
 
 Para configurações inicias
 ```
-python manage.py makemigrations
+python3 manage.py makemigrations
 ```
 
 Logo após executar para criar o banco de dados
 ```
-python manage.py migrate
+python3 manage.py migrate
 ```
 
 <h2>Executar</h2>
 
 Para executar o projeto, executar o seguinte comando estando na pasta raiz do projeto.
 ```
-python manage.py runserver
+python3 manage.py runserver
 ```
 
 Com isso um servidor local será iniciado. Acesse http://localhost:8000 para vizualisar o site e webservice.
@@ -37,7 +44,7 @@ Para acessar acesse o localhost http://127.0.0.1:8000
 <h2>Web Service</h2>
 
 O Web Service foi criado utilizando RESTful.
-Serão listados os Métodos HTTP de cada etapa do desafio juntamente com um código exemplo.
+Serão listados os Métodos HTTP de cada etapa do desafio juntamente com um código exemplo em python.
 
 <h3>Resumo Criptográfico</h3>
 
