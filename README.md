@@ -5,7 +5,7 @@
 
 > Em alguns casos, se não funcionar, utilize o comando pip3 no lugar de pip.
 
-<h2>Instalar</h2>
+<h2>Instalação</h2>
 
 Para instalar as depêndencias necessárias, execute:
 ```
@@ -13,7 +13,7 @@ pip install -r requisitos.txt
 ```
 Ou instale manualmente os pacotes cujos nomes estão no arquivo requisitos.txt
 
-<h2>Configurações</h2>
+<h2>Dependências</h2>
 
 Após instalar as dependências e antes de executar o projeto, executar os seguintes comandos estando na pasta raiz do projeto.
 
@@ -27,7 +27,7 @@ Logo após executar para criar o banco de dados
 python3 manage.py migrate
 ```
 
-<h2>Executar</h2>
+<h2>Execução</h2>
 
 Para executar o projeto, executar o seguinte comando estando na pasta raiz do projeto.
 ```
@@ -84,7 +84,7 @@ print(chaves.json())
 
 <h3>Certificado Raiz</h3>
 
-<b>POST</b> - Apesas o método POST, sem nenhum argumento. Retorna um json avisando se criou ou não um certificado AC-RAIZ.
+<b>POST</b> - Sem nenhum argumento. Retorna um json avisando se criou ou não um certificado AC-RAIZ.
 Os dados do certificado já estão definidos no código, por esse motivo não há argumentos.
 ```
 import requests
