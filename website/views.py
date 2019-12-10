@@ -17,6 +17,9 @@ from labsec.serializer import ResumoSerializer, ChavesSerializer, CertificadosSe
 from .forms import InsereCertificadoForm
 from . import db
 
+#Others
+import json
+
 #------------------------------------#
 '''Erros do Site'''
 #------------------------------------#
@@ -166,11 +169,16 @@ class ResumoList(generics.ListCreateAPIView):
             serializer.validated_data['nameUpload'] = request.FILES['arquivo'].name
             storage = FileSystemStorage()
             filename = storage.save(request.FILES['arquivo'].name, request.FILES['arquivo'])
-            serializer.validated_data['resumoCriptografico'] = process.upload_to_sha256(filename)
+            resumo = process.upload_to_sha256(filename)
+            serializer.validated_data['resumoCriptografico'] = resumo
             process.deletefile(filename)
             serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            retorno = {
+                'nameUpload' : filename,
+                'resumoCriptografico' : resumo
+            }
+            return Response(json.dumps(retorno, sort_keys=True, indent=4), status=status.HTTP_201_CREATED)
+        return Response({}, status=status.HTTP_400_BAD_REQUEST)
 
 class ChavesList(generics.ListCreateAPIView):
     
@@ -187,8 +195,16 @@ class ChavesList(generics.ListCreateAPIView):
             serializer.validated_data['q'] = str(key.q)
             serializer.validated_data['d'] = str(key.d)
             serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            retorno = {
+                'tipo': int(request.data['tipo']),
+                'n': str(key.n),
+                'e': str(key.e),
+                'p': str(key.p),
+                'q': str(key.q),
+                'd': str(key.d), 
+            }
+            return Response(json.dumps(retorno, sort_keys=True, indent=4), status=status.HTTP_201_CREATED)
+        return Response({}, status=status.HTTP_400_BAD_REQUEST)
 
 class CertificadoList(generics.ListCreateAPIView):
 
