@@ -119,4 +119,3 @@ print(certificado.json())
 <h2>Dúvidas e Contato</h2>
 
 - [X] joseloolo@hotmail.com
-- [X] (48) 99970-8959 (Wpp e Telegram)
