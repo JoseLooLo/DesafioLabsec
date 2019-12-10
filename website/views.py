@@ -13,7 +13,7 @@ from django.template import RequestContext
 #Project
 from . import process
 from labsec.models import Resumo, Chaves, Certificado
-from labsec.serializer import ResumoSerializer, ChavesSerializer, CertificadosSerializer
+from labsec.serializer import ResumoSerializer, ChavesSerializer, CertificadosSerializer, CertificadoRaizSerializer
 from .forms import InsereCertificadoForm
 from . import db
 
@@ -218,3 +218,16 @@ class CertificadoList(generics.ListCreateAPIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class CertificadoRaizList(generics.CreateAPIView):
+
+    serializer_class = CertificadoRaizSerializer
+
+    def post(self, request):
+        retorno = process.gerarCertificadoRaiz()
+        if retorno == 0:
+            return Response({'CREATE': 'OK'}, status=status.HTTP_201_CREATED)
+        else:
+            return Response({'CREATE': 'EXIST'}, status=status.HTTP_200_OK)
+
+

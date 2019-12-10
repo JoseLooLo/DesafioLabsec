@@ -43,9 +43,11 @@ def gerarCertificadoRaiz():
 
     if os.path.exists("CertificadoACRAIZ.crt"):
         print ("Certificado existente.")
+        return -1
     else:
         open("CertificadoACRAIZ.crt", 'wb').write(crypto.dump_certificate(crypto.FILETYPE_PEM, certificado))
         open("PrivateKeyACRAIZ.key", 'wb').write(crypto.dump_privatekey(crypto.FILETYPE_PEM, key))
+        return 0
     
 
 def gerarCertificado(name, serial, state, country, locality, org, orgunit):

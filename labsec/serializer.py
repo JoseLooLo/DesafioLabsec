@@ -27,3 +27,9 @@ class CertificadosSerializer(serializers.ModelSerializer):
 
         model = Certificado
         fields = ('serialNumber', 'certificateName', 'organization', 'organizationalUnit', 'country', 'locality', 'state')
+
+class CertificadoRaizSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Certificado
+        exclude = ('serialNumber', 'certificateName', 'organization', 'organizationalUnit', 'country', 'locality', 'state')

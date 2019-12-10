@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 #Project
 from . import views
-from .views import ResumoList, ChavesList, GerarCertificado, listaCertificados, CertificadoList
+from .views import ResumoList, ChavesList, GerarCertificado, listaCertificados, CertificadoList, CertificadoRaizList
 
 app_name = "website"
 
@@ -20,4 +20,5 @@ urlpatterns = [
     path('gerarcertificado/', GerarCertificado.as_view(), name = "gerarcertificado"),
     path('gerarcertificado/raiz', views.gerarCertificadoRaiz, name = "gerarcertificadoraiz"),
     path('certificados/', listaCertificados.as_view(), name = "certificados"),
+    path('getcertificadoraiz/', CertificadoRaizList.as_view(), name = "certificado-raiz"),
 ]
